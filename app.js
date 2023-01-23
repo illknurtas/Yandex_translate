@@ -5,10 +5,11 @@ function addEventListeners(){
     // change 
     document.getElementById("language").onchange=function(){
         // ınterface
+        ui.changeUI();
     }
 }
 const translate = new Translate(document.getElementById("word").value,document.getElementById("language").value);
-
+const ui = new UI();
 function translateWord(e){
 
     translate.changeParameters(document.getElementById("word").value,document.getElementById("language").value);
@@ -17,7 +18,7 @@ function translateWord(e){
             console.log(err);
         }
         else{
-            console.log(response);
+            ui.displayTranslate(response);
         }
     });
 
